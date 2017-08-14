@@ -16,6 +16,20 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 
+gem 'cloudinary'
+gem 'carrierwave', '~> 0.11.2'
+
+# Use CoffeeScript for .coffee assets and views
+gem 'coffee-rails', '~> 4.2'
+# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
+gem 'turbolinks', '~> 5'
+# Authentication
+
+gem 'better_errors'
+gem 'binding_to_caller'
+gem 'devise'
+
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
@@ -24,3 +38,8 @@ group :development, :test do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'rspec-rails', group: [ :test ]
+gem 'rails-controller-testing', group: [ :test ]
