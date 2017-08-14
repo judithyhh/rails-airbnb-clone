@@ -26,7 +26,7 @@ gem 'turbolinks', '~> 5'
 # Authentication
 
 gem 'better_errors'
-gem 'binding_to_caller'
+gem 'binding_of_caller'
 gem 'devise'
 
 
