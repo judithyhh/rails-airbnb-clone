@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 20170816062825) do
     t.datetime "updated_at", null: false
     t.float    "price"
     t.text     "location"
+    t.float    "latitude"
+    t.float    "longitude"
     t.string   "photo"
     t.index ["user_id"], name: "index_lenses_on_user_id", using: :btree
   end
