@@ -22,6 +22,7 @@ User.all.each do |owner|
   if owner.is_owner == true
     [1,2,3].sample.times do
       Lense.create(user_id: owner.id, lens_type: ["Kit", "Standard", "Prime", "Telephoto Zoom", "Macro", "Wide Angle"].sample, brand: ["Canon", "Leica", "Minolta", "Nikon", "Olympus"].sample, price: rand(30..120), condition: ["Excellent", "Good", "Usable"].sample, location: ["Chengdu", "Shanghai", "Suzhou", "Beijing", "Xinjiang", "Shenzhen", "Guangzhou"].sample, remote_photo_url: url.sample)
+      Lense.save
       p "Lens created for #{owner.first_name}"
     end
   end
