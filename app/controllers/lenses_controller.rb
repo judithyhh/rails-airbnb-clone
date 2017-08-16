@@ -43,6 +43,7 @@ class LensesController < ApplicationController
   end
 
   def show
+    @lense = Lense.find(:id)
   end
 
   private
