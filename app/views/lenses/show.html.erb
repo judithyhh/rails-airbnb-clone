@@ -1,13 +1,8 @@
-<h1>@lense.name</h1>
-<p>Find me in app/views/lenses/show.html.erb</p>
-
-<%= render "pages/banner" %>
-
 <div class="cards-wrapper">
   <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-offset-3 col-sm-6">
-          <%= cl_image_tag @lense.photo, width: 100vh, height: 100vh, crop: "fit" %>
+          <%= cl_image_tag @lense.photo, width: 300, height: 400, crop: :fill %>
         </div>
         <div class="col-xs-12 col-sm-offset-3 col-sm-6">
           <h2><%= @lense.brand + @lense.lens_type %></h2>
@@ -19,7 +14,7 @@
           </p>
         </div>
         <div class="col-xs-12 col-sm-offset-3 col-sm-6">
-          <p><%= "On loan from " + @lense.user %></p>
+          <p><%= "On loan from " + @lense.user.id.to_s %></p>
         </div>
         <div class="col-xs-12 col-sm-offset-3 col-sm-6">
           <p>
@@ -31,22 +26,10 @@
         </div>
         <div class="col-xs-12 col-sm-offset-3 col-sm-6">
           <p>
-            <%= link_to "Request to borrow", new_lense_booking_path, {class: "btn btn-treehouse"} %>
+            <%= link_to "Request to borrow", new_lense_booking_path(@lense), {class: "btn btn-treehouse"} %>
             <%= link_to "Back to all lenses", lenses_path, {class: "btn btn-primary"} %>
           </p>
         </div>
     </div>
   </div>
 </div>
-
-
-
-<!--
-<p>
-  <strong>Listing:</strong>
-  <%= @lense.name %>
-</p>
-
-
-<%= link_to 'Back', lenses_path %>
- -->
