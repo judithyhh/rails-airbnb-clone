@@ -27,6 +27,7 @@ class LensesController < ApplicationController
 
   def create
     @lense = Lense.new(lense_params)
+    @lense.user = current_user
     respond_to do |format|
       if @lense.save
         format.html { redirect_to @lense, notice: 'Your listing was successfully created.' }
@@ -54,7 +55,7 @@ class LensesController < ApplicationController
   private
 
   def lense_params
-    params.require(:lense).permit(:user, :lens_type, :brand, :price, :condition, :location)
+    params.require(:lense).permit(:lens_type, :brand, :price, :condition, :location)
   end
 
 end
