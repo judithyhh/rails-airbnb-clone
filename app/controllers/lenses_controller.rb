@@ -2,6 +2,14 @@ class LensesController < ApplicationController
   #show last 24 created lenses
   def index
     @lenses = Lense.all
+
+    @lenses_to_mark = Lense.where.not(latitude: nil, longitude: nil)
+
+    @hash = Gmaps4rails.build_markers(@lenses_to_mark) do |lense, marker|
+      marker.lat lense.latitude
+      marker.lng lense.longitude
+      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+    end
   end
 
   def search
