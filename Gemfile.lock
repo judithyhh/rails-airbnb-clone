@@ -62,8 +62,6 @@ GEM
       json (>= 1.7)
       mime-types (>= 1.16)
       mimemagic (>= 0.3.0)
-    city-state (0.0.13)
-      rubyzip (~> 1.1)
     cloudinary (1.8.1)
       aws_cf_signer
       rest-client
@@ -222,7 +220,6 @@ GEM
       rspec-mocks (~> 3.6.0)
       rspec-support (~> 3.6.0)
     rspec-support (3.6.0)
-    rubyzip (1.2.1)
     sass (3.5.1)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -283,7 +280,6 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-sass
   carrierwave (~> 0.11.2)
-  city-state
   cloudinary
   coffee-rails
   devise
