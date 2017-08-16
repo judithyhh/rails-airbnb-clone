@@ -11,6 +11,6 @@ User.delete_all
 User.create(name: Faker::Friends.character, Faker::Internet.email)
 end
 
-13.times  do
-booking.create(user_id: )
-end
+#13.times  do
+#booking.create(user_id: )
+#end
