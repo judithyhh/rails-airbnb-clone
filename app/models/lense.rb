@@ -4,4 +4,8 @@ class Lense < ApplicationRecord
 
   validates :lens_type, inclusion: { in: ["Kit", "Standard", "Prime", "Telephoto Zoom", "Macro", "Wide Angle"] }
   validates :user, :brand, :price, :condition, :location, presence: true
+
+  geocoded_by :location
+  after_validation :geocode, if: :location_changed?
+
 end

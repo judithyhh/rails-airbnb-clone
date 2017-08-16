@@ -17,6 +17,9 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 
+# For geocoding
+gem "geocoder"
+
 gem 'cloudinary'
 gem 'carrierwave', '~> 0.11.2'
 
