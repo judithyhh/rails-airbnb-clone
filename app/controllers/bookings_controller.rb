@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   def index
-    @lense = Lense.find(:lense_id)
+    @lense = Lense.find(params[:lense_id])
     @bookings = Booking.where("lense = ?", @lense)
   end
 
@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_request_params)
     @booking.user = current_user
-    @booking.lense = Lense.find(:lense_id)
+    @booking.lense = Lense.find(params[:lense_id])
     respond_to do |format|
       if @booking.save
         format.html { redirect_to @booking.lense, notice: 'Your booking request was successfully sent.' }
