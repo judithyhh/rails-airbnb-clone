@@ -1,25 +1,14 @@
 Rails.application.routes.draw do
 
-  get 'lenses/search'
-
-  get 'lenses/new'
-
-  get 'lenses/create'
-
-  get 'lenses/edit'
-
-  get 'lenses/update'
-
-  get 'lenses/destroy'
-
-  get 'lenses/show'
-
-  get 'lenses/index'
+resources :lenses do
+  resources :bookings, only: [:index, :new, :create]
+end
+resources :bookings, only: [:edit, :update]
 
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
-  root to: 'pages#home'
+  root to: 'lenses#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 
