@@ -55,7 +55,7 @@ class LensesController < ApplicationController
   private
 
   def lense_params
-    params.require(:lense).permit(:lens_type, :brand, :price, :condition, :location)
+    params.require(:lense).permit(:lens_type, :brand, :price, :condition, :location, :photo, :photo_cache)
   end
 
 end
