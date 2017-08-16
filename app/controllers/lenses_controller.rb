@@ -8,10 +8,15 @@ class LensesController < ApplicationController
     search_lenses = Lense.where("location = ?, lens_type = ? AND brand = ? AND price < ?", params[:location], params[:lens_type], params[:brand], params[:price].to_f)
     @lenses = []
     search_lenses.each do |lense|
-      bookings_array = lense.bookings
-      bookings_array.each do |booking|
-        has_overlap = (params[:borrow_date] - booking.return_date) * (booking.borrow_date - params[:return_date]) >= 0
-        @lenses << booking.lense unless has_overlap && if @lenses.include?(booking.lense)
+      if lense.bookings.nil?
+        @lenses << lense
+      else
+        has_overlap_array = []
+        lense.bookings.each do |booking|
+          has_overlap = (params[:borrow_date] - booking.return_date) * (booking.borrow_date - params[:return_date]) >= 0
+          has_overlap_array << 1 if has_overlap
+        end
+        @lenses << lense unless has_overlap_array.include?(1)
       end
     end
   end
@@ -22,6 +27,7 @@ class LensesController < ApplicationController
 
   def create
     @lense = Lense.new(lense_params)
+    @lense.user = current_user
     respond_to do |format|
       if @lense.save
         format.html { redirect_to @lense, notice: 'Your listing was successfully created.' }
@@ -49,7 +55,7 @@ class LensesController < ApplicationController
   private
 
   def lense_params
-    params.require(:lense).permit(:user, :lens_type, :brand, :price, :condition, :location)
+    params.require(:lense).permit(:lens_type, :brand, :price, :condition, :location)
   end
 
 end
