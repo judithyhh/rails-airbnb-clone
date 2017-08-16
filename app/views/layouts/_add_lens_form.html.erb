@@ -1,0 +1,19 @@
+<%= simple_form_for(@lense) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :lens_type, collection: ["Kit", "Standard", "Prime", "Telephoto Zoom", "Macro", "Wide Angle"], placeholder: "Choose lens type" %>
+    <%= f.input :brand, collection: ["Canon", "Leica", "Minolta", "Nikon", "Olympus"], placeholder: "Please choose the brand" %>
+    <%= f.input :price, placeholder: "Price per day" %>
+    <%= f.input :condition, collection: ["Excellent", "Good", "Usable"],placeholder: "Fungus? Scratches?" %>
+    <%= f.input :location, collection: ["Chengdu", "Shanghai", "Suzhou", "Beijing", "Xinjiang", "Shenzhen", "Guangzhou"], placeholder: "Which city is your lens available in?" %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+  </div>
+
+    <%= f.input :photo %>
+    <%= f.input :photo_cache, as: :hidden %>
+
+  <div class="form-action">
+    <%= f.button :submit, class: "btn btn-primary"  %>
+  </div>
+<% end %>
