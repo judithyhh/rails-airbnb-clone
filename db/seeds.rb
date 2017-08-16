@@ -12,17 +12,16 @@ Lense.delete_all
 User.delete_all
 
 20.times do
-User.create(email: Faker::Internet.email, password: "123456", password_confirmation: "123456", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, location: Faker::Address.city, is_owner: [true, true, false].sample)
+User.create(email: Faker::Internet.email, password: "123456", password_confirmation: "123456", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, location: Faker::Address.city, is_owner: [true, true, false].sample, )
 p "User Created"
 end
 
-
-
+url = ["http://res.cloudinary.com/adbeuys/image/upload/v1502864681/lens-190972_1920_x1oqog.jpg", "http://res.cloudinary.com/adbeuys/image/upload/v1502864681/Rokinon-35mm-Cine-T1.5-Lens-e1439043459276_2_org6oo.jpg"]
 
 User.all.each do |owner|
   if owner.is_owner == true
     [1,2,3].sample.times do
-      Lense.create(user_id: owner.id, lens_type: ["Kit", "Standard", "Prime", "Telephoto Zoom", "Macro", "Wide Angle"].sample, brand: ["Canon", "Leica", "Minolta", "Nikon", "Olympus"].sample, price: rand(30..120), condition: ["Excellent", "Good", "Usable"].sample, location: ["Chengdu", "Shanghai", "Suzhou", "Beijing", "Xinjiang", "Shenzhen", "Guangzhou"].sample)
+      Lense.create(user_id: owner.id, lens_type: ["Kit", "Standard", "Prime", "Telephoto Zoom", "Macro", "Wide Angle"].sample, brand: ["Canon", "Leica", "Minolta", "Nikon", "Olympus"].sample, price: rand(30..120), condition: ["Excellent", "Good", "Usable"].sample, location: ["Chengdu", "Shanghai", "Suzhou", "Beijing", "Xinjiang", "Shenzhen", "Guangzhou"].sample, photo_url: url.sample)
       p "Lens created for #{owner.first_name}"
     end
   end

@@ -1,7 +1,7 @@
 class LensesController < ApplicationController
   #show last 24 created lenses
   def index
-    @lenses = Lense.all[-24..-1]
+    @lenses = Lense.all
 
     @lenses_to_mark = Lense.where.not(latitude: nil, longitude: nil)
 
