@@ -17,12 +17,15 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 
+# For geocoding
+gem "geocoder"
+
 gem 'cloudinary'
 gem 'carrierwave', '~> 0.11.2'
 gem "faker"
 
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
+# # Use CoffeeScript for .coffee assets and views
+# gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Authentication
@@ -30,6 +33,13 @@ gem 'turbolinks', '~> 5'
 gem 'better_errors'
 gem 'binding_of_caller'
 gem 'devise'
+
+gem "coffee-rails"
+gem "gmaps4rails"
+
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
 
 
 group :development, :test do
