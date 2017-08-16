@@ -10,8 +10,8 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Loan your lenses", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Lenses", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Add a lens listing", "lenses_create_path", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "See all lenses", "lenses_show_path", class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
@@ -49,8 +49,8 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Loan your lenses</a></li>
-        <li><a href="#">Lenses</a></li>
+        <li><a href="#">Add a lens listing</a></li>
+        <li><a href="#">See all lenses</a></li>
         <li><a href="#">Messages</a></li>
       </ul>
     </div>

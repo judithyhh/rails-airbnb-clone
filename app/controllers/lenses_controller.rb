@@ -11,7 +11,7 @@ class LensesController < ApplicationController
       bookings_array = lense.bookings
       bookings_array.each do |booking|
         has_overlap = (params[:borrow_date] - booking.return_date) * (booking.borrow_date - params[:return_date]) >= 0
-        @lenses << booking.lense unless has_overlap && if @lenses.include?(booking.lense)
+        @lenses << lense unless has_overlap && if @lenses.include?(lense)
       end
     end
   end
