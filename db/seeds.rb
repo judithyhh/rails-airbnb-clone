@@ -22,7 +22,7 @@ end
 User.all.each do |owner|
   if owner.is_owner == true
     [1,2,3].sample.times do
-      Lense.create(user_id: owner.id, lens_type: ["Kit", "Standard", "Prime", "Telephoto Zoom", "Macro", "Wide Angle"].sample, brand: ["canon", "leica", "minolta", "nikon", "olympus"].sample, price: rand(30..120), condition: ["excellent", "good", "standard", "usable"].sample, location: owner.location)
+      Lense.create(user_id: owner.id, lens_type: ["Kit", "Standard", "Prime", "Telephoto Zoom", "Macro", "Wide Angle"].sample, brand: ["Canon", "Leica", "Minolta", "Nikon", "Olympus"].sample, price: rand(30..120), condition: ["Excellent", "Good", "Usable"].sample, location: ["Chengdu", "Shanghai", "Suzhou", "Beijing", "Xinjiang", "Shenzhen", "Guangzhou"].sample)
       p "Lens created for #{owner.first_name}"
     end
   end

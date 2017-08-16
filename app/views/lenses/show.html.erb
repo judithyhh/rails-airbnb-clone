@@ -1,5 +1,46 @@
-<h1>Lenses#show</h1>
+<h1>@lense.name</h1>
 <p>Find me in app/views/lenses/show.html.erb</p>
+
+<%= render "pages/banner" %>
+
+<div class="cards-wrapper">
+  <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-offset-3 col-sm-6">
+          <%= cl_image_tag @lense.photo, width: 100vh, height: 100vh, crop: "fit" %>
+        </div>
+        <div class="col-xs-12 col-sm-offset-3 col-sm-6">
+          <h2><%= @lense.brand + @lense.lens_type %></h2>
+        </div>
+        <div class="col-xs-12 col-sm-offset-3 col-sm-6">
+          <p>
+            <strong><%= @lense.location %></strong>
+            <%= " | Yours for " + "$" + ('%.2f' % @lense.price) + "/day" %>
+          </p>
+        </div>
+        <div class="col-xs-12 col-sm-offset-3 col-sm-6">
+          <p><%= "On loan from " + @lense.user %></p>
+          <%= cl_image_tag @lense.user.photo, :transformation=>[{:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"crop"},{:width=>65, :crop=>"scale"}]) %>
+        </div>
+        <div class="col-xs-12 col-sm-offset-3 col-sm-6">
+          <p>
+            <strong>Condition</strong>
+          </p>
+          <p>
+            <%= @lense.condition %>
+          </p>
+        </div>
+        <div class="col-xs-12 col-sm-offset-3 col-sm-6">
+          <p>
+            <%= link_to "Request to borrow", new_lense_booking_path, {class: "btn btn-treehouse"} %>
+            <%= link_to "Back to all lenses", lenses_path, {class: "btn btn-primary"} %>
+          </p>
+        </div>
+    </div>
+  </div>
+</div>
+
+
 
 <!--
 <p>
