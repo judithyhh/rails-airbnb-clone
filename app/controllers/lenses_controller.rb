@@ -1,7 +1,7 @@
 class LensesController < ApplicationController
   #show last 24 created lenses
   def index
-    @lenses = Lense.all[-24..-1]
+    @lenses = Lense.all
   end
 
   def search
