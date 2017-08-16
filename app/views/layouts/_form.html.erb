@@ -6,6 +6,8 @@
     <%= f.input :brand, placeholder: "Brand" %>
     <%= f.input :price, placeholder: "Price per day" %>
     <%= f.input :condition, placeholder: "Fungus? Scratches?" %>
+    <%= f.input :location, placeholder: "Where is the lens available?" %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
   </div>
 
     <%= f.input :photo %>
