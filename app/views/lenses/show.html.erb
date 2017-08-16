@@ -20,7 +20,6 @@
         </div>
         <div class="col-xs-12 col-sm-offset-3 col-sm-6">
           <p><%= "On loan from " + @lense.user %></p>
-          <%= cl_image_tag @lense.user.photo, :transformation=>[{:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"crop"},{:width=>65, :crop=>"scale"}]) %>
         </div>
         <div class="col-xs-12 col-sm-offset-3 col-sm-6">
           <p>
