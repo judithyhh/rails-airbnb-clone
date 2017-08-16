@@ -1,0 +1,12 @@
+<div class="form">
+  <%= simple_form_for(@lense) do |f| %>
+    <%= f.error_notification %>
+    <%= f.association :lens_type, placeholder: "Choose one" %>
+    <%= f.input :item, placeholder: "Description of lens" %>
+    <%= f.input :price, placeholder: "Name of drink" %>
+    <%= f.input :condition, placeholder: "Name of drink" %>
+    <%= f.input :photo %>
+    <%= f.input :photo_cache, as: :hidden %>
+    <%= f.button :submit, class: "btn btn-primary"  %>
+  <% end %>
+</div>
