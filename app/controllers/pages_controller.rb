@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
   def home
-    @lenses = Lense.all[0..8]
+    @lenses = Lense.all.order('created_at DESC').limit(9)
   end
 end
