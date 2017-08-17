@@ -17,5 +17,5 @@ class Lense < ApplicationRecord
   scope :location, -> (location) { where location: location }
   scope :brand, -> (brand) { where brand: brand }
   scope :lens_type, -> (lens_type) { where lens_type: lens_type }
-  scope :price, -> (price) { where("price < ?", price) }
+  scope :price, -> (price) { where("price <= ?", price) }
 end
