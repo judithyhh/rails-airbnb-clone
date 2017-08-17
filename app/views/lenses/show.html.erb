@@ -14,7 +14,8 @@
           </p>
         </div>
         <div class="col-xs-12 col-sm-offset-3 col-sm-6">
-          <p><%= "On loan from " + @lense.user.id.to_s %></p>
+          <% avatar_url = @lense.user.photo.url || @lense.user.facebook_picture_url %>
+          <p>On loan from</p><%= image_tag avatar_url %>
         </div>
         <div class="col-xs-12 col-sm-offset-3 col-sm-6">
           <p>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170817033329) do
+ActiveRecord::Schema.define(version: 20170817025322) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,7 +63,6 @@ ActiveRecord::Schema.define(version: 20170817033329) do
     t.string   "last_name"
     t.boolean  "is_owner",               default: true
     t.text     "location"
-    t.string   "avatar"
     t.string   "provider"
     t.string   "uid"
     t.string   "facebook_picture_url"
