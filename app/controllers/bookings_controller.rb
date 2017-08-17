@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
   def index
     @lense = Lense.find(params[:lense_id])
-    @bookings = Booking.where("lense = ?", @lense)
+    @bookings = Booking.where("lense_id = ?", params[:lense_id])
   end
 
   def new

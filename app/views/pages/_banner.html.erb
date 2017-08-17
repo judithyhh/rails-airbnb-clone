@@ -1,10 +1,21 @@
 <div class="banner" style="background-image: linear-gradient(-50deg, rgba(0, 0, 0, 1) 0%, rgba(0,36,61,0.6) 30%), url('http://res.cloudinary.com/tanjamiee/image/upload/v1502791385/wood-coffee-camera-desk-16510_1_slbzoj.jpg');">
   <div class="banner-content">
     <h1>See the world with different lenses</h1>
-    <%= form_tag(lenses_path, method: 'get', class: 'navbar-form navbar-center') do %>
-    <%= search_field_tag 'search', nil, class: 'form-control', placeholder: 'Search'  %>
-    <%= submit_tag "Submit", class: 'btn btn-primary', :name => nil %>
-  <% end %>
+    <%= form_tag lenses_path, method: 'get', class: 'navbar-form navbar-center' do %>
+      <input type="hidden" name="search" value="true">
+      <label>Location:</label>
+      <input type="text" name="location">
+      <label>Type:</label>
+      <input type="text" name="lens_type">
+      <label>Brand:</label>
+      <input type="text" name="brand">
+      <label>Max Price:</label>
+      <input type="text" name="price">
+      <label type="text">Borrow date:</label>
+      <input type="date" id="borrow_date" name="borrow_date">
+      <label type="text">Return date:</label>
+      <input type="date" id="return_date" name="return_date">
+      <button>search</button>
+    <% end %>
   </div>
 </div>
-
