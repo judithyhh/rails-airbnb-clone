@@ -34,6 +34,8 @@ gem 'better_errors'
 gem 'binding_of_caller'
 gem 'devise'
 
+gem "letter_opener", group: :development
+
 gem "coffee-rails"
 gem "gmaps4rails"
 
