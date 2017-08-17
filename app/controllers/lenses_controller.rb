@@ -24,6 +24,7 @@ class LensesController < ApplicationController
       else
         @lenses = searched_lenses
       render 'index'
+    end
     else
       render 'pages/home'
     end
