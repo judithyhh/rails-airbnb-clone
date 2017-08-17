@@ -1,0 +1,53 @@
+.btn-facebook {
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: #3B5998;
+  transition: background 0.3s ease;
+  margin-bottom: 10px !important;
+  margin-top: 77px;
+}
+.btn-faccebook:hover {
+  opacity: 1;
+  background: #3ac162;
+  text-decoration: none;
+  color: white;
+}
+
+.form-actions {
+  margin-bottom: 20px;
+}
+
+.btn-login {
+  margin-bottom: 20px !important;
+}
+
+.btn-out-log {
+  width: 100%;
+}
+
+.separator {
+  border-color: black;
+  margin: 0;
+  margin-bottom: 35px;
+}
+
+.no-account {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  p, a {
+    font-size: 14px;
+    font-weight: light;
+    margin: 0;
+  }
+  a {
+    margin-left: 5px;
+  }
+}
+
+.button-space {
+  margin-top: 10px;
+}
