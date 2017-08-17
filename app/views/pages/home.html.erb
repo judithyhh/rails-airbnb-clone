@@ -2,3 +2,25 @@
 <h1>Newest lenses on loan</h1>
 <br>
 <%= render "pages/cards" %>
+
+<div class="cards-wrapper">
+  <div class="container">
+    <div class="row">
+     <% unless @lenses.nil? %>
+      <% @lenses.each do |lense| %>
+        <%= link_to lense do %>
+        <div class="col-xs-12 col-sm-4" style="background-image: linear-gradient(rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= cl_image_path lense.photo, width: 250, height: 250, crop: "fit" %>'), height: 250px, width: 250px" >
+
+          <div class="banner-content">
+            <h3><%= lense.brand + lense.lens_type %></h3>
+            <p><%= "$" + ('%.2f' % lense.price) + "/day" %></p>
+            <p><%= lense.location %></p>
+          </div>
+        </div>
+        <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
