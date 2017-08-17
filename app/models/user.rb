@@ -7,10 +7,15 @@ class User < ApplicationRecord
 
   has_many :bookings
   has_many :lenses
+  mount_uploader :photo, PhotoUploader
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
+
+  validates_presence_of :photo
+  validates_integrity_of :photo
+  validates_processing_of :photo
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
