@@ -11,12 +11,14 @@ Booking.delete_all
 Lense.delete_all
 User.delete_all
 
+url = ["http://res.cloudinary.com/adbeuys/image/upload/v1502864681/lens-190972_1920_x1oqog.jpg", "http://res.cloudinary.com/adbeuys/image/upload/v1502864681/Rokinon-35mm-Cine-T1.5-Lens-e1439043459276_2_org6oo.jpg"]
+human_url = ["http://res.cloudinary.com/tanjamiee/image/upload/w_28,h_28,c_crop,g_face,r_max/v1502952658/IMG_2552_llmmbl.jpg", "http://res.cloudinary.com/tanjamiee/image/upload/w_28,h_28,c_crop,g_face,r_max/v1502952660/IMG_2749_c0o1df.jpg"]
+
 20.times do
-User.create(email: Faker::Internet.email, password: "123456", password_confirmation: "123456", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, location: Faker::Address.city, is_owner: [true, true, false].sample, )
+User.create(email: Faker::Internet.email, password: "123456", password_confirmation: "123456", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, location: Faker::Address.city, is_owner: [true, true, false].sample, remote_photo_url: human_url.sample)
 p "User Created"
 end
 
-url = ["http://res.cloudinary.com/adbeuys/image/upload/v1502864681/lens-190972_1920_x1oqog.jpg", "http://res.cloudinary.com/adbeuys/image/upload/v1502864681/Rokinon-35mm-Cine-T1.5-Lens-e1439043459276_2_org6oo.jpg"]
 
 User.all.each do |owner|
   if owner.is_owner == true
