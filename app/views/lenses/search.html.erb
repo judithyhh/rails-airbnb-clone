@@ -1,2 +1,4 @@
-<h1>Lenses#search</h1>
-<p>Find me in app/views/lenses/search.html.erb</p>
+<h1>Search for lenses</h1>
+
+<%= render 'layouts/search_form', lense: @lense %>
+<%= link_to 'Back', lenses_path %>
