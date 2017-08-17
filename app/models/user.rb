@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :lenses
   mount_uploader :photo, PhotoUploader
 
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
 
@@ -40,5 +40,13 @@ class User < ApplicationRecord
 
   def from_omniauth?
     provider && uid
+  end
+
+  after_create :send_welcome_email
+
+  private
+
+  def send_welcome_email
+    UserMailer.welcome(self).deliver_now
   end
 end
