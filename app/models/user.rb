@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  mount_uploader :photo, PhotoUploader
+
+  validates :first_name, :last_name, :photo, presence:true, unless: :from_omniauth?
+
   has_many :bookings
   has_many :lenses
 
@@ -27,5 +31,9 @@ class User < ApplicationRecord
     end
 
     return user
+  end
+
+  def from_omniauth?
+    provider && uid
   end
 end
