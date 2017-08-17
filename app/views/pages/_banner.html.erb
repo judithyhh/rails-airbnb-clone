@@ -1,7 +1,10 @@
 <div class="banner" style="background-image: linear-gradient(-50deg, rgba(0, 0, 0, 1) 0%, rgba(0,36,61,0.6) 30%), url('http://res.cloudinary.com/tanjamiee/image/upload/v1502791385/wood-coffee-camera-desk-16510_1_slbzoj.jpg');">
   <div class="banner-content">
-    <h1>Jamie is the best</h1>
-    <%= link_to "Browse", lenses_path, {class: "btn btn-primary"} %>
+    <h1>See the world with different lenses</h1>
+    <%= form_tag(lenses_path, method: 'get', class: 'navbar-form navbar-center') do %>
+    <%= search_field_tag 'search', nil, class: 'form-control', placeholder: 'Search'  %>
+    <%= submit_tag "Submit", class: 'btn btn-primary', :name => nil %>
+  <% end %>
   </div>
 </div>
 

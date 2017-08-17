@@ -1,7 +1,7 @@
-<div class="cards-wrapper">
-  <div class="container">
+<div class="content">
+  <div class="results">
     <div class="row">
-        <div class="col-xs-12 col-sm-offset-3 col-sm-6">
+     <div class="col-xs-12 col-sm-offset-3 col-sm-6">
           <%= cl_image_tag @lense.photo, width: 300, height: 400, crop: :fill %>
         </div>
         <div class="col-xs-12 col-sm-offset-3 col-sm-6">
@@ -36,7 +36,29 @@
         </div>
     </div>
   </div>
+
+  <div class="map-container">
+    <div id="map" style="width: 400px; height: 300px;"></div>
+  </div>
+  <% content_for(:for_map) do %>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        var handler = Gmaps.build('Google');
+        handler.buildMap({ internal: { id: 'map' } }, function() {
+          markers = handler.addMarkers(<%= raw @hash.to_json %>);
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+          if (markers.length == 0) {
+            handler.getMap().setZoom(2);
+          } else if (markers.length == 1) {
+            handler.getMap().setZoom(14);
+          }
+        });
+      });
+    </script>
+  <% end %>
 </div>
 
 
-<%= render "pages/map" %>
+
+
