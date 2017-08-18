@@ -47,10 +47,9 @@
       <input id="return_date" name="return_date" min="2017-01-01" max="2018-01-01" type="date">
       <br>
       <br>
-      <button>Browse</button>
-
+      <button>Search</button>
     </div>
-
+    <p>or <%= button_to "Browse all", "lenses?utf8=✓&search=true&location=&price=&borrow_date=&return_date=", {class: "btn btn-basic"} %><p>
     <% end %>
   </div>
 </div>
