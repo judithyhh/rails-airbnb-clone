@@ -1,5 +1,5 @@
 <h1>My listings </h1>
-<%= render "pages/cards" %>
+<%= render "pages/cards_with_delete" %>
 
 <h1>Bookings Received</h1>
 <h2>Pending</h2>
@@ -28,11 +28,11 @@
 
 <h1>Bookings Requested</h1>
 <h2>Pending</h2>
-<% if @bookings_received_pending.blank? %>
+<% if @bookings_requested_pending.blank? %>
   <p>None</p>
 <% end %>
-<% @bookings_received_pending.each do |booking| %>
-  <p><%= booking.lense.user.first_name + "'s " + booking.lense.brand + " " + booking.lense.lens_type + " lens in " + booking.lense.location %> | <%= link_to "Cancel booking request", edit_booking_path(booking) %></p>
+<% @bookings_requested_pending.each do |booking| %>
+  <p data-booking-id="<%= booking.id %>"><%= booking.lense.user.first_name + "'s " + booking.lense.brand + " " + booking.lense.lens_type + " lens in " + booking.lense.location %> | <%= link_to "Delete", booking, method: :delete, remote: true %></p>
 <% end %>
 
 <h2>Approved</h2>

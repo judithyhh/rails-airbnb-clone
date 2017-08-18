@@ -1,21 +1,23 @@
 <div class="content">
   <div class="results">
     <div class="row">
-     <% unless @lenses.nil? %>
-      <% @lenses.each do |lense| %>
-        <%= link_to lense do %>
-          <div class="col-xs-12 col-sm-4">
-            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path lense.photo.url, width: 250, height: 250, crop:"fit" %>);">
-            <div class="card-content">
-              <h2><%= lense.brand %></h2>
-              <p><%=lense.lens_type %></p>
-              <p><%= "$" + ('%.2f' % lense.price) + "/day" %></p>
-              <p><%= lense.location %></p>
+      <% if @lenses.blank? %>
+        <p>There are no lenses that meet the search parameters. Please try again with other search parameters.</p>
+      <% else %>
+        <% @lenses.each do |lense| %>
+          <%= link_to lense do %>
+            <div class="col-xs-12 col-sm-4">
+              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path lense.photo.url, width: 250, height: 250, crop:"fit" %>);">
+              <div class="card-content">
+                <h2><%= lense.brand %></h2>
+                <p><%=lense.lens_type %></p>
+                <p><%= "$" + ('%.2f' % lense.price) + "/day" %></p>
+                <p><%= lense.location %></p>
+              </div>
             </div>
           </div>
-        </div>
-        <% end %>
-        <% end %>
+          <% end %>
+          <% end %>
       <% end %>
     </div>
   </div>

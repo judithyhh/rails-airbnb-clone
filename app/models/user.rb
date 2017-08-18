@@ -5,8 +5,8 @@ class User < ApplicationRecord
 
   validates :first_name, :last_name, :photo, presence:true, unless: :from_omniauth?
 
-  has_many :bookings
-  has_many :lenses
+  has_many :bookings, dependent: :destroy
+  has_many :lenses, dependent: :destroy
   mount_uploader :photo, PhotoUploader
 
   devise :database_authenticatable, :registerable, :confirmable,
