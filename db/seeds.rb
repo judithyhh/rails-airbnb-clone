@@ -11,7 +11,7 @@ Booking.delete_all
 Lense.delete_all
 User.delete_all
 
-url = ["http://res.cloudinary.com/adbeuys/image/upload/v1502864681/lens-190972_1920_x1oqog.jpg", "http://res.cloudinary.com/adbeuys/image/upload/v1502864681/Rokinon-35mm-Cine-T1.5-Lens-e1439043459276_2_org6oo.jpg"]
+url = ["http://res.cloudinary.com/adbeuys/image/upload/v1502864681/lens-190972_1920_x1oqog.jpg", "http://res.cloudinary.com/adbeuys/image/upload/v1502864681/Rokinon-35mm-Cine-T1.5-Lens-e1439043459276_2_org6oo.jpg", "http://res.cloudinary.com/tanjamiee/image/upload/v1502794310/_dsc4808_0_2_b7kqao.jpg", "http://res.cloudinary.com/tanjamiee/image/upload/v1503037024/pentaxlenses-11_ls70bo.jpg", "http://res.cloudinary.com/tanjamiee/image/upload/v1503037019/photo_point01_jovl89.jpg", "http://res.cloudinary.com/tanjamiee/image/upload/v1503037014/maxresdefault_1_j70kln.jpg", "http://res.cloudinary.com/tanjamiee/image/upload/v1503037011/maxresdefault_gcasmi.jpg", "http://res.cloudinary.com/tanjamiee/image/upload/v1503037008/pentaxlenses-3_ul6nsd.jpg", "http://res.cloudinary.com/tanjamiee/image/upload/v1503036986/lens-extender-teleconverter-photographic-equipment-lenses-50560_khzyfd.jpg", "http://res.cloudinary.com/tanjamiee/image/upload/v1503036980/hqdefault_mcrfl0.jpg", "http://res.cloudinary.com/tanjamiee/image/upload/v1503036979/1469009380654186_w2kxlc.jpg"]
 human_url = ["http://res.cloudinary.com/tanjamiee/image/upload/w_28,h_28,c_crop,g_face,r_max/v1502952658/IMG_2552_llmmbl.jpg", "http://res.cloudinary.com/tanjamiee/image/upload/w_28,h_28,c_crop,g_face,r_max/v1502952660/IMG_2749_c0o1df.jpg"]
 
 20.times do
