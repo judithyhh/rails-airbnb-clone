@@ -1,21 +1,56 @@
 <div class="banner" style="background-image: linear-gradient(-50deg, rgba(0, 0, 0, 1) 0%, rgba(0,36,61,0.6) 30%), url('http://res.cloudinary.com/tanjamiee/image/upload/v1502791385/wood-coffee-camera-desk-16510_1_slbzoj.jpg');">
   <div class="banner-content">
     <h1>See the world with different lenses</h1>
+    <p>With a click, in a snap</p>
+
+    <div class="search">
     <%= form_tag lenses_path, method: 'get', class: 'navbar-form navbar-center' do %>
-      <input type="hidden" name="search" value="true">
+    <input type="hidden" name="search" value="true">
       <label>Location:</label>
-      <input type="text" name="location">
+      <select type="search" name="location" >
+        <option disabled selected>City</option>
+        <option>Chengdu</option>
+        <option>Shanghai</option>
+        <option>Suzhou</option>
+        <option>Beijing</option>
+        <option>Xinjiang</option>
+        <option>Shenzhen</option>
+        <option>Guangzhou</option>
+      </select>
+
       <label>Type:</label>
-      <input type="text" name="lens_type">
+      <select type="search" name="lens_type">
+        <option disabled selected>Lens type</option>
+        <option>Kit</option>
+        <option>Standard</option>
+        <option>Prime</option>
+        <option>Telephoto Zoom</option>
+        <option>Macro</option>
+        <option>Wide Angle</option>
+      </select>
+
       <label>Brand:</label>
-      <input type="text" name="brand">
+      <select type="search" name="brand">
+        <option disabled selected>Lens brand</option>
+        <option>Canon</option>
+        <option>Leica</option>
+        <option>Minolta</option>
+        <option>Nikon</option>
+        <option>Olympus</option>
+      </select>
+      <br>
       <label>Max Price:</label>
-      <input type="text" name="price">
-      <label type="text">Borrow date:</label>
-      <input type="date" id="borrow_date" name="borrow_date">
-      <label type="text">Return date:</label>
-      <input type="date" id="return_date" name="return_date">
+      <input type="number" name="price" placeholder="$200">
+      <label type="search">Borrow date:</label>
+      <input id="startdate" name="startdate" min="2017-01-01" max="2018-01-01" type="date">
+      <label type="search">Return date:</label>
+      <input id="startdate" name="startdate" min="2017-01-01" max="2018-01-01" type="date">
+      <br>
+      <br>
       <button>search</button>
+
+    </div>
+
     <% end %>
   </div>
 </div>
