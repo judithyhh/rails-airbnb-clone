@@ -62,6 +62,8 @@ class LensesController < ApplicationController
   end
 
   def destroy
+    @lense = Lense.find(params[:id])
+    @lense.destroy
   end
 
   def show
