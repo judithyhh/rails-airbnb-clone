@@ -8,7 +8,7 @@
             <div class="outer-card">
             <div class="card-content">
               <h4><%= lense.brand %></h4>
-              <p><%=lense.lens_type %></p>
+              <p style="font-size: 12px"><%=lense.lens_type %></p>
               <p><%= "$" + ('%.2f' % lense.price) + "/day" %></p>
               <p><%= lense.location %></p>
             </div>
@@ -21,8 +21,9 @@
       <% end %>
     </div>
   </div>
-  <div class="map-container">
-    <div id="map" style="width: 400px; height: 300px;"></div>
+
+  <div class="map-container", style= "margin-left: 30px; margin-top: 30px" >
+    <div id="map" style="width: 450px; height: 500px;"></div>
   </div>
   <% content_for(:for_map) do %>
     <script type="text/javascript">
