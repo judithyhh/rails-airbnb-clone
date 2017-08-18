@@ -2,7 +2,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :approved_by_owner, collection: [true, false], placeholder: "Do you approve booking request?" %>
+    <%= f.input :approved_by_owner, collection: [["Yes", true], ["No", false], ["Respond later", nil]], placeholder: "Do you approve booking request?" %>
     <%= f.hidden_field :user_id, value: current_user.id %>
 
   </div>

@@ -1,5 +1,8 @@
 <% if current_user == @booking.lense.user %>
   <h1>Respond to Booking Request</h1>
+  <p>Person requesting lens: <%= mail_to @booking.user.email, @booking.user.first_name + " " + @booking.user.last_name %></p>
+  <p>Loan period: <%= @booking.borrow_date %> to <%= @booking.return_date %></p>
+  <p>Booking comments: <%= @booking.booking_comment %></p>
   <%= render 'layouts/approve_booking_form', booking: @booking %>
 <% elsif current_user == @booking.user %>
   <h1>Edit Your Booking</h1>
