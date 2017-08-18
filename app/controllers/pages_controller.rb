@@ -29,8 +29,7 @@ class PagesController < ApplicationController
           @bookings_received_pending << booking
         end
       end
-      @bookings_requested = []
-      @booking_requested = @user.bookings
+      @bookings_requested = @user.bookings
       @bookings_requested_pending = []
       @bookings_requested_approved = []
       @bookings_requested_rejected = []
