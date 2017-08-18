@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
       <% if current_user == @booking.lense.user %>
-        <h1>Respond to Booking Request</h1>
+        <h2>Respond to Booking Request</h2>
         <% avatar_url = @booking.user.photo.url || @booking.user.facebook_picture_url %>
         <p>Congrats! You've received a booking request from: <%= mail_to @booking.user.email, @booking.user.first_name + " " + @booking.user.last_name %>    <%= image_tag avatar_url %></p>
         <p>Loan period: <%= @booking.borrow_date %> to <%= @booking.return_date %></p>
@@ -14,7 +14,7 @@
       <% else %>
         <h1>You are not authorized to edit this booking.</h1>
       <% end %>
-      <%= link_to 'Back', @lense, class: "btn btn-primary" %>
+      <%= link_to 'Back', @lense, class: "btn btn-big btn-block" %>
     </div>
   </div>
 </div>
