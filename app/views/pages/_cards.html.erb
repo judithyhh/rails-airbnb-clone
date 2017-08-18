@@ -7,14 +7,16 @@
       <% @lenses.each do |lense| %>
         <%= link_to lense do %>
         <div class="col-xs-12 col-sm-4">
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path lense.photo.url, width: 250, height: 250, crop:"fit" %>);">
+          <div class="outer-card">
             <div class="card-content">
-              <h2><%= lense.brand %></h2>
-              <p><%=lense.lens_type %></p>
+              <h4><%= lense.brand %></h4>
+              <p style="font-size: 12px"><%=lense.lens_type %></p>
               <p><%= "$" + ('%.2f' % lense.price) + "/day" %></p>
               <p><%= lense.location %></p>
             </div>
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path lense.photo.url, width: 250, height: 250, crop:"fit" %>);">
             </div>
+          </div>
           </div>
         <% end %>
       <% end %>

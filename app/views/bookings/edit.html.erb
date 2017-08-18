@@ -1,6 +1,7 @@
 <% if current_user == @booking.lense.user %>
   <h1>Respond to Booking Request</h1>
-  <p>Person requesting lens: <%= mail_to @booking.user.email, @booking.user.first_name + " " + @booking.user.last_name %></p>
+  <% avatar_url = @booking.user.photo.url || @booking.user.facebook_picture_url %>
+  <p>Congrats! You've received a booking request from: <%= mail_to @booking.user.email, @booking.user.first_name + " " + @booking.user.last_name %>    <%= image_tag avatar_url %></p>
   <p>Loan period: <%= @booking.borrow_date %> to <%= @booking.return_date %></p>
   <p>Booking comments: <%= @booking.booking_comment %></p>
   <%= render 'layouts/approve_booking_form', booking: @booking %>
