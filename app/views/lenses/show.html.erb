@@ -3,37 +3,19 @@
     <div class="row">
      <div class="col-xs-12 col-sm-offset-3 col-sm-6">
           <%= cl_image_tag @lense.photo, width: 300, height: 400, crop: :fill %>
-        </div>
-        <div class="col-xs-12 col-sm-offset-3 col-sm-6">
           <h2><%= @lense.brand + " " + @lense.lens_type + " lens" %></h2>
-        </div>
-        <div class="col-xs-12 col-sm-offset-3 col-sm-6">
-          <p>
-            <strong><%= @lense.location %></strong>
-            <%= " | Yours for " + "$" + ('%.2f' % @lense.price) + "/day" %>
-          </p>
-        </div>
-        <div class="col-xs-12 col-sm-offset-3 col-sm-6">
-          <% avatar_url = @lense.user.photo.url || @lense.user.facebook_picture_url %>
-          <p>On loan from</p><%= image_tag avatar_url %>
-        </div>
-        <div class="col-xs-12 col-sm-offset-3 col-sm-6">
-          <p>
-            <strong>Condition</strong>
-          </p>
-          <p>
-            <%= @lense.condition %>
-          </p>
-        </div>
-        <div class="col-xs-12 col-sm-offset-3 col-sm-6">
-          <p>
-            <%= link_to "Request to borrow", new_lense_booking_path(@lense), {class: "btn btn-treehouse"} %>
-            <%= link_to "Back to all lenses", lenses_path, {class: "btn btn-primary"} %>
-          </p>
-        </div>
-        <div class="col-xs-12 col-sm-offset-3 col-sm-6">
-          <div id="map" style="width: 400px; height: 300px;"></div>
-        </div>
+        <% if current_user == @lense.user %>
+            <p><strong><%= @lense.location %></strong><%= " | $" + ('%.2f' % @lense.price) + "/day" %></p>
+            <p><%= @lense.condition %> condition</p>
+          <p><%= link_to "Edit your listing", edit_lense_path(@lense), {class: "btn btn-treehouse"} %><%= link_to "Back to all lenses", lenses_path, {class: "btn btn-primary"} %></p>
+        <% else %>
+            <p><strong><%= @lense.location %></strong><%= " | Yours for " + "$" + ('%.2f' % @lense.price) + "/day" %></p>
+            <p><%= @lense.condition %> condition</p>
+            <% avatar_url = @lense.user.photo.url || @lense.user.facebook_picture_url %>
+            <p>On loan from <%= image_tag avatar_url %></p>
+          <p><%= link_to "Request to borrow", new_lense_booking_path(@lense), {class: "btn btn-primary btn btn-block"} %><%= link_to "Back to all lenses", lenses_path, {class: "btn btn-primary btn btn-block"} %></p>
+        <% end %>
+      </div>
     </div>
   </div>
 

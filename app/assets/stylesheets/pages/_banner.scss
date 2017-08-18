@@ -21,3 +21,35 @@
   margin-bottom: 30px;
 }
 
+.search {
+  font-size: 17px;
+  font-weight: lighter;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.search input {
+  color: black;
+  font-size: 17px;
+  font-weight: lighter;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+}
+
+.search select {
+  color: black;
+  font-size: 17px;
+  font-weight: lighter;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+}
+
+.search button {
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: #6092d1;
+  transition: background 0.3s ease;
+}

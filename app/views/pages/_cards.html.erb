@@ -1,7 +1,9 @@
 <div class="cards">
   <div class="container">
     <div class="row">
-     <% unless @lenses.nil? %>
+     <% if @lenses.blank? %>
+     <p>No lenses to show</p>
+     <% else %>
       <% @lenses.each do |lense| %>
         <%= link_to lense do %>
         <div class="col-xs-12 col-sm-4">
