@@ -4,13 +4,13 @@
   <div class="form-inputs">
     <%= f.input :borrow_date, as: :date, order: [:day, :month, :year], placeholder: "Input borrow date" %>
     <%= f.input :return_date, as: :date, order: [:day, :month, :year], placeholder: "Input return date" %>
-    <%= f.input :booking_comment, placeholder: "Hi please let me borrow your awesome lenses :)" %>
+    <%= f.input :booking_comment, placeholder: "Hi please let me borrow your awesome lenses :)", :input_html => { :style => "width: 40%"  } %>
     <%= f.hidden_field :user_id, value: current_user.id %>
 
   </div>
 
   <div class="form-action">
-    <%= f.button :submit, class: "btn btn-primary"  %>
+    <%= f.button :submit, class: "btn btn-primary", style: "width: 200px; margin-bottom: 20px"  %>
   </div>
 <% end %>
 
