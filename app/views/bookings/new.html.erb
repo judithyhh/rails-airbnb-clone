@@ -1,4 +1,7 @@
 <h1>New Booking</h1>
-
-<%= render 'layouts/add_booking_form', booking: @booking %>
+<% if current_user == @booking.lense.user %>
+  <p>You can't book this lens -- You already own it!</p>
+<% else %>
+  <%= render 'layouts/add_booking_form', booking: @booking %>
+<% end %>
 <%= button_to 'Back', @lense, class: "btn btn-secondary active", style: "width: 200px" %>
