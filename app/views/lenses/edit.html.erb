@@ -1,7 +1,7 @@
-<h1>Editing Listing</h1>
-
-<%= render 'form', lense: @lense %>
-
-<%= link_to 'Show', @lense %> |
-<%= link_to 'Back', lenses_path %>
-
+<% if current_user == @lense.user %>
+  <h1>Edit Your Listing</h1>
+  <%= render 'layouts/edit_lens_form', lense: @lense %>
+<% else %>
+  <h1>You are not authorized to edit this lens.</h1>
+<% end %>
+<%= link_to 'Back to lens', @lense %>

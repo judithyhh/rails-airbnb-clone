@@ -4,6 +4,8 @@
 <% elsif current_user == @booking.user %>
   <h1>Edit Your Booking</h1>
   <%= render 'layouts/edit_booking_form', booking: @booking %>
+<% else %>
+  <h1>You are not authorized to edit this booking.</h1>
 <% end %>
 
 
