@@ -8,7 +8,7 @@
           <%= render 'layouts/add_booking_form', booking: @booking %>
         <% end %>
       <div class="button-space">
-        <%= button_to 'Back', lenses_path, class: "btn btn-outline-dark btn-block" %>
+        <%= link_to 'Back', lense_path(@booking.lense), class: "btn btn-outline-dark btn-block" %>
       </div>
     </div>
   </div>

@@ -7,13 +7,13 @@
         <% if current_user == @lense.user %>
             <p><strong><%= @lense.location %></strong><%= " | $" + ('%.2f' % @lense.price) + "/day" %></p>
             <p><%= @lense.condition %> condition</p>
-          <p><%= link_to "Edit your listing", edit_lense_path(@lense), {class: "btn btn-treehouse"} %><%= link_to "Back to all lenses", lenses_path, {class: "btn btn-primary"} %></p>
+          <p><%= link_to "Edit your listing", edit_lense_path(@lense), {class: "btn btn-primary"} %><%= link_to "Back to all lenses", lenses_path, {class: "btn btn-basic"} %></p>
         <% else %>
             <p><strong><%= @lense.location %></strong><%= " | Yours for " + "$" + ('%.2f' % @lense.price) + "/day" %></p>
             <p><%= @lense.condition %> condition</p>
             <% avatar_url = @lense.user.photo.url || @lense.user.facebook_picture_url %>
             <p>On loan from <%= mail_to @lense.user.email, @lense.user.first_name + " " + @lense.user.last_name %>    <%= image_tag avatar_url, class: "user-avatar"  %></p>
-          <p><%= link_to "Request to borrow", new_lense_booking_path(@lense), {class: "btn btn-primary btn btn-block"} %><%= link_to "Back to all lenses", lenses_path, {class: "btn btn-primary btn btn-block"} %></p>
+          <p><%= link_to "Request to borrow", new_lense_booking_path(@lense), {class: "btn btn-primary btn btn-block"} %><%= link_to "Back to all lenses", lenses_path, {class: "btn btn-basic btn-block"} %></p>
         <% end %>
       </div>
     </div>
