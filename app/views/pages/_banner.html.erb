@@ -39,18 +39,17 @@
         <option>Olympus</option>
       </select>
       <br>
-      <label>Max Price:</label>
+      <label>Max Price: $</label>
       <input type="number" name="price" placeholder="$200">
       <label type="search">Borrow date:</label>
-      <input id="startdate" name="startdate" min="2017-01-01" max="2018-01-01" type="date">
+      <input id="borrow_date" name="borrow_date" min="2017-01-01" max="2018-01-01" type="date">
       <label type="search">Return date:</label>
-      <input id="startdate" name="startdate" min="2017-01-01" max="2018-01-01" type="date">
+      <input id="return_date" name="return_date" min="2017-01-01" max="2018-01-01" type="date">
       <br>
       <br>
-      <button>search</button>
-
+      <button>Search</button>
     </div>
-
+    <p>or <%= button_to "Browse all", "lenses?utf8=✓&search=true&location=&price=&borrow_date=&return_date=", {class: "btn btn-basic"} %><p>
     <% end %>
   </div>
 </div>

@@ -7,11 +7,11 @@
     <%= f.input :booking_comment, placeholder: "Hi please let me borrow your awesome lenses :)" %>
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.hidden_field :approved_by_owner, value: nil %>
-
   </div>
 
   <div class="form-action">
     <%= f.button :submit, class: "btn btn-primary"  %>
   </div>
 <% end %>
+
 

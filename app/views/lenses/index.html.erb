@@ -1,7 +1,84 @@
+    <br>
+    <div class="search">
+    <%= form_tag lenses_path, method: 'get', class: 'navbar-form navbar-center' do %>
+    <input type="hidden" name="search" value="true">
+      <label>Location:</label>
+      <select type="search" name="location">
+        <% if params["location"].present? %>
+          <option selected><%= params["location"] %></option>
+        <% else %>
+          <option disabled selected>City</option>
+        <% end %>
+        <option>Chengdu</option>
+        <option>Shanghai</option>
+        <option>Suzhou</option>
+        <option>Beijing</option>
+        <option>Xinjiang</option>
+        <option>Shenzhen</option>
+        <option>Guangzhou</option>
+      </select>
+
+      <label>Type:</label>
+      <select type="search" name="lens_type">
+        <% if params["lens_type"].present? %>
+          <option selected><%= params["lens_type"] %></option>
+        <% else %>
+          <option disabled selected>Lens type</option>
+        <% end %>
+        <option>Kit</option>
+        <option>Standard</option>
+        <option>Prime</option>
+        <option>Telephoto Zoom</option>
+        <option>Macro</option>
+        <option>Wide Angle</option>
+      </select>
+
+      <label>Brand:</label>
+      <select type="search" name="brand">
+        <% if params["brand"].present? %>
+          <option selected><%= params["brand"] %></option>
+        <% else %>
+          <option disabled selected>Lens brand</option>
+        <% end %>
+        <option>Canon</option>
+        <option>Leica</option>
+        <option>Minolta</option>
+        <option>Nikon</option>
+        <option>Olympus</option>
+      </select>
+      <br>
+      <label>Max Price: $</label>
+      <% if params["price"].present? %>
+        <input type="number" name="price" value=<%= params["price"] %>>
+      <% else %>
+        <input type="number" name="price" placeholder="200">
+      <% end %>
+      <label type="search">Borrow date:</label>
+      <% if params["borrow_date"].present? %>
+        <input id="borrow_date" name="borrow_date" min="2017-01-01" max="2018-01-01" type="date" value=<%= params["borrow_date"] %>>
+      <% else %>
+        <input id="borrow_date" name="borrow_date" min="2017-01-01" max="2018-01-01" type="date" %>>
+      <% end %>
+      <label type="search">Return date:</label>
+      <% if params["return_date"].present? %>
+        <input id="return_date" name="return_date" min="2017-01-01" max="2018-01-01" type="date" value=<%= params["return_date"] %>>
+      <% else %>
+        <input id="return_date" name="return_date" min="2017-01-01" max="2018-01-01" type="date" %>>
+      <% end %>
+      <br>
+      <button>Search</button>
+    </div>
+    <% end %>
+
 <div class="content">
   <div class="results", style= "margin-top: 30px">
     <div class="row">
-     <% unless @lenses.nil? %>
+      <% if @lenses.blank? %>
+        <div class="col-xs-10 col-xs-offset-1">
+          <br>
+          <p>Sorry, there are no lenses that meet the search parameters. Please try again with other search parameters.</p>
+        </div>
+      <% else %>
       <% @lenses.each do |lense| %>
         <%= link_to lense do %>
           <div class="col-xs-12 col-sm-6">
@@ -43,6 +120,3 @@
     </script>
   <% end %>
 </div>
-
-
-
