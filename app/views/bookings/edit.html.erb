@@ -1,16 +1,20 @@
-<% if current_user == @booking.lense.user %>
-  <h1>Respond to Booking Request</h1>
-  <p>Person requesting lens: <%= mail_to @booking.user.email, @booking.user.first_name + " " + @booking.user.last_name %></p>
-  <p>Loan period: <%= @booking.borrow_date %> to <%= @booking.return_date %></p>
-  <p>Booking comments: <%= @booking.booking_comment %></p>
-  <%= render 'layouts/approve_booking_form', booking: @booking %>
-<% elsif current_user == @booking.user %>
-  <h1>Edit Your Booking</h1>
-  <%= render 'layouts/edit_booking_form', booking: @booking %>
-<% else %>
-  <h1>You are not authorized to edit this booking.</h1>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <% if current_user == @booking.lense.user %>
+        <h2>Respond to Booking Request</h2>
+        <p>Person requesting lens: <%= mail_to @booking.user.email, @booking.user.first_name + " " + @booking.user.last_name %></p>
+        <p>Loan period: <%= @booking.borrow_date %> to <%= @booking.return_date %></p>
+        <p>Booking comments: <%= @booking.booking_comment %></p>
+        <%= render 'layouts/approve_booking_form', booking: @booking %>
+      <% elsif current_user == @booking.user %>
+        <h1>Edit Your Booking</h1>
+        <%= render 'layouts/edit_booking_form', booking: @booking %>
+      <% else %>
+        <h1>You are not authorized to edit this booking.</h1>
+      <% end %>
 
-
-<%= link_to 'Back', @lense %>
-
+      <%= link_to 'Back', @lense, class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>
