@@ -2,7 +2,11 @@
   <div class="container">
     <div class="row">
      <% if @lenses.blank? %>
-     <p>No lenses to show</p>
+        <div class="col-xs-9">
+            <div class="card-content">
+              <p>No lenses to show. Click 'Add a lens listing' on the navigation bar to add a lens!</p>
+            </div>
+         </div>
      <% else %>
       <% @lenses.each do |lense| %>
         <%= link_to lense do %>
@@ -11,11 +15,11 @@
             <div class="card-content">
               <h4><%= lense.brand %></h4>
               <p style="font-size: 12px"><%=lense.lens_type %></p>
-              <p><%= "$" + ('%.2f' % lense.price) + "/day" %></p>
               <p><%= lense.location %></p>
             </div>
             <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path lense.photo.url, width: 250, height: 250, crop:"fit" %>);">
             </div>
+
         </div>
           </div>
         <% end %>
