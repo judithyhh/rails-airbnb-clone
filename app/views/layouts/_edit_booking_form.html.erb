@@ -1,0 +1,16 @@
+<%= simple_form_for @booking, url: booking_path do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :borrow_date, as: :date, order: [:day, :month, :year], placeholder: "Input borrow date" %>
+    <%= f.input :return_date, as: :date, order: [:day, :month, :year], placeholder: "Input return date" %>
+    <%= f.input :booking_comment, placeholder: "Hi please let me borrow your awesome lenses :)" %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+
+  </div>
+
+  <div class="form-action">
+    <%= f.button :submit, class: "btn btn-primary"  %>
+  </div>
+<% end %>
+
