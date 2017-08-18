@@ -17,10 +17,6 @@ class PagesController < ApplicationController
           @bookings_received << booking
         end
       end
-      @bookings_requested = []
-      @user.bookings.each do |booking|
-        @bookings_requested << booking
-      end
       @bookings_received_pending = []
       @bookings_received_approved = []
       @bookings_received_rejected = []
@@ -32,6 +28,10 @@ class PagesController < ApplicationController
         else
           @bookings_received_pending << booking
         end
+      end
+      @bookings_requested = []
+      @user.bookings.each do |booking|
+        @bookings_requested << booking
       end
       @bookings_requested_pending = []
       @bookings_requested_approved = []

@@ -48,8 +48,16 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href=/lenses/:lense_id/bookings/new> Add a lens listing</a></li>
-        <li><a href="#">Messages</a></li>
+      <% if user_signed_in? %>
+        <li><a href=/lenses/new> Add a lens listing</a></li>
+        <li><a href=/dashboard>My listings and bookings</a></li>
+        <li><%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+              <% end %></li>
+      <% else %>
+        <li><a href=/users/sign_in>Log in</a></li>
+        <li><a href=/users/sign_up>Sign up</a></li>
+      <% end %>
       </ul>
     </div>
   </div>
