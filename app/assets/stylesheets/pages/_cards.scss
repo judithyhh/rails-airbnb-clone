@@ -1,13 +1,33 @@
 .card {
   height: 175px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  width: 65%;
   background-size: cover !important;
   background-position: center;
   color: white;
-  padding: 10px;
+  border-radius: 0px 5px 5px 0px;
+}
+
+.outer-card {
+  margin-bottom: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px gray;
 }
 
 .card-content {
+  border-radius: 5px 0px 0px 5px;
+  padding: 10px;
+  height: 175px;
+  color: white;
+  width: 35%;
+  background-color: #dedee0;
+  color: black;
+  font-weight: lighter;
+  font-size: 18px;
 }
 
 .card-user {
