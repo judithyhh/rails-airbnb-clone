@@ -30,9 +30,7 @@ class PagesController < ApplicationController
         end
       end
       @bookings_requested = []
-      @user.bookings.each do |booking|
-        @bookings_requested << booking
-      end
+      @booking_requested = @user.bookings
       @bookings_requested_pending = []
       @bookings_requested_approved = []
       @bookings_requested_rejected = []
