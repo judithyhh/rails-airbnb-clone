@@ -1,52 +1,93 @@
-<h1>My listings </h1>
-<%= render "pages/cards_with_delete" %>
+<br>
+<div class="container text-center grid">
+  <div class="gridcard grid-avatar">
+    <div class="gridcard-content">
+        <h1>My listings </h1>
+        <%= render "pages/cards_with_delete" %>
+      </div>
+    </div>
 
-<h1>Bookings Received</h1>
-<h2>Pending</h2>
-<% if @bookings_received_pending.blank? %>
-  <p>None</p>
-<% end %>
-<% @bookings_received_pending.each do |booking| %>
-  <p><%= "Your " + booking.lense.brand + " " + booking.lense.lens_type + " lens in " + booking.lense.location %> | <%= link_to "Respond to request", edit_booking_path(booking) %></p>
-<% end %>
+  <div class="gridcard grid-booking">
+    <div class="gridcard-content">
+      <h2>Bookings Received</h2>
+    </div>
+  </div>
 
-<h2>Approved</h2>
-<% if @bookings_received_approved.blank? %>
-  <p>None</p>
-<% end %>
-<% @bookings_received_approved.each do |booking| %>
-  <p><%= "Your " + booking.lense.brand + " " + booking.lense.lens_type + " lens in " + booking.lense.location %> | <%= link_to "Edit approval", edit_booking_path(booking) %></p>
-<% end %>
+  <div class="gridcard grid-booking-pending">
+    <div class="gridcard-content">
+      <h3>Pending</h3>
+        <% if @bookings_received_pending.blank? %>
+          <p>None</p>
+        <% end %>
+        <% @bookings_received_pending.each do |booking| %>
+          <p><%= "Your " + booking.lense.brand + " " + booking.lense.lens_type + " lens in " + booking.lense.location %> | <%= link_to "Respond to request", edit_booking_path(booking) %></p>
+        <% end %>
+    </div>
+  </div>
 
-<h2>Rejected</h2>
-<% if @bookings_received_rejected.blank? %>
-  <p>None</p>
-<% end %>
-<% @bookings_received_rejected.each do |booking| %>
-  <p><%= "Your " + booking.lense.brand + " " + booking.lense.lens_type + " lens in " + booking.lense.location %> | <%= link_to "Edit rejection", edit_booking_path(booking) %></p>
-<% end %>
+  <div class="gridcard grid-booking-approved">
+    <div class="gridcard-content">
+      <h3>Approved</h3>
+      <% if @bookings_received_approved.blank? %>
+        <p>None</p>
+      <% end %>
+      <% @bookings_received_approved.each do |booking| %>
+        <p><%= "Your " + booking.lense.brand + " " + booking.lense.lens_type + " lens in " + booking.lense.location %> | <%= link_to "Edit approval", edit_booking_path(booking) %></p>
+      <% end %>
+    </div>
+  </div>
 
-<h1>Bookings Requested</h1>
-<h2>Pending</h2>
-<% if @bookings_requested_pending.blank? %>
-  <p>None</p>
-<% end %>
-<% @bookings_requested_pending.each do |booking| %>
-  <p data-booking-id="<%= booking.id %>"><%= booking.lense.user.first_name + "'s " + booking.lense.brand + " " + booking.lense.lens_type + " lens in " + booking.lense.location %> | <%= link_to "Delete", booking, method: :delete, remote: true %></p>
-<% end %>
+  <div class="gridcard grid-booking-rejected">
+    <div class="gridcard-content">
+      <h3>Rejected</h3>
+      <% if @bookings_received_rejected.blank? %>
+        <p>None</p>
+      <% end %>
+      <% @bookings_received_rejected.each do |booking| %>
+        <p><%= "Your " + booking.lense.brand + " " + booking.lense.lens_type + " lens in " + booking.lense.location %> | <%= link_to "Edit rejection", edit_booking_path(booking) %></p>
+      <% end %>
+    </div>
+  </div>
 
-<h2>Approved</h2>
-<% if @bookings_requested_approved.blank? %>
-  <p>None</p>
-<% end %>
-<% @bookings_requested_approved.each do |booking| %>
-  <p><%= booking.lense.user.first_name + "'s " + booking.lense.brand + " " + booking.lense.lens_type + " lens in " + booking.lense.location %> | <%= link_to "Confirm payment", edit_booking_path(booking) %></p>
-<% end %>
+  <div class="gridcard grid-request">
+    <div class="gridcard-content">
+      <h2>Bookings Requested</h2>
+    </div>
+  </div>
 
-<h2>Rejected</h2>
-<% if @bookings_requested_rejected.blank? %>
-  <p>None</p>
-<% end %>
-<% @bookings_requested_rejected.each do |booking| %>
-  <p data-booking-id="<%= booking.id %>"><%= booking.lense.user.first_name + "'s " + booking.lense.brand + " " + booking.lense.lens_type + " lens in " + booking.lense.location %> | <%= link_to "Edit and resubmit request", edit_booking_path(booking) %> | <%= link_to "Delete", booking, method: :delete, remote: true %></p>
-<% end %>
+  <div class="gridcard grid-request-pending">
+    <div class="gridcard-content">
+      <h3>Pending</h3>
+      <% if @bookings_requested_pending.blank? %>
+        <p>None</p>
+      <% end %>
+      <% @bookings_requested_pending.each do |booking| %>
+        <p data-booking-id="<%= booking.id %>"><%= booking.lense.user.first_name + "'s " + booking.lense.brand + " " + booking.lense.lens_type + " lens in " + booking.lense.location %> | <%= link_to "Delete", booking, method: :delete, remote: true %></p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="gridcard grid-request-approved">
+    <div class="gridcard-content">
+      <h3>Approved</h3>
+      <% if @bookings_requested_approved.blank? %>
+        <p>None</p>
+      <% end %>
+      <% @bookings_requested_approved.each do |booking| %>
+        <p><%= booking.lense.user.first_name + "'s " + booking.lense.brand + " " + booking.lense.lens_type + " lens in " + booking.lense.location %> | <%= link_to "Confirm payment", edit_booking_path(booking) %></p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="gridcard grid-request-rejected">
+    <div class="gridcard-content">
+      <h3>Rejected</h3>
+      <% if @bookings_requested_rejected.blank? %>
+        <p>None</p>
+      <% end %>
+      <% @bookings_requested_rejected.each do |booking| %>
+        <p><%= booking.lense.user.first_name + "'s " + booking.lense.brand + " " + booking.lense.lens_type + " lens in " + booking.lense.location %> | <%= link_to "Edit booking request and resubmit", edit_booking_path(booking) %></p>
+      <% end %>
+    </div>
+  </div>
+</div>

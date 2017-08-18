@@ -1,0 +1,55 @@
+.gridcard {
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  justify-content: space-around;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 35% 1fr 1fr 1fr;
+  grid-template-rows: 10% 1fr 10% 1fr;
+}
+
+.grid-avatar {
+  grid-row: 1 / span 4;
+  grid-column: 1 / span 1;
+}
+
+.grid-booking {
+  grid-row: 1 / span 1;
+  grid-column: 2 / span 3;
+}
+
+.grid-booking-pending {
+  grid-row: 2 / span 1;
+  grid-column: 2 / span 1;
+}
+
+.grid-booking-approved {
+  grid-row: 2 / span 1;
+  grid-column: 3 / span 1;
+}
+
+.grid-booking-rejected {
+  grid-row: 2 / span 1;
+  grid-column: 4 / span 1;
+}
+
+.grid-request {
+  grid-row: 3 / span 1;
+  grid-column: 2 / span 3;
+}
+.grid-request-pending {
+  grid-row: 4 / span 1;
+  grid-column: 2 / span 1;
+}
+
+.grid-request-approved {
+  grid-row: 4 / span 1;
+  grid-column: 3 / span 1;
+}
+
+.grid-request-rejected {
+  grid-row: 4 / span 1;
+  grid-column: 4 / span 1;
+}
+
