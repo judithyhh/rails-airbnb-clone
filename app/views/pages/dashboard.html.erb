@@ -48,5 +48,5 @@
   <p>None</p>
 <% end %>
 <% @bookings_requested_rejected.each do |booking| %>
-  <p><%= booking.lense.user.first_name + "'s " + booking.lense.brand + " " + booking.lense.lens_type + " lens in " + booking.lense.location %> | <%= link_to "Edit booking request and resubmit", edit_booking_path(booking) %></p>
+  <p data-booking-id="<%= booking.id %>"><%= booking.lense.user.first_name + "'s " + booking.lense.brand + " " + booking.lense.lens_type + " lens in " + booking.lense.location %> | <%= link_to "Edit and resubmit request", edit_booking_path(booking) %> | <%= link_to "Delete", booking, method: :delete, remote: true %></p>
 <% end %>
