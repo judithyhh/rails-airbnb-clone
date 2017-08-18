@@ -4,9 +4,9 @@
       <% if current_user == @booking.lense.user %>
         <h2>Respond to Booking Request</h2>
         <% avatar_url = @booking.user.photo.url || @booking.user.facebook_picture_url %>
-        <p>Congrats! You've received a booking request from: <%= mail_to @booking.user.email, @booking.user.first_name + " " + @booking.user.last_name %>    <%= image_tag avatar_url %></p>
-        <p>Loan period: <%= @booking.borrow_date %> to <%= @booking.return_date %></p>
-        <p>Booking comments: <%= @booking.booking_comment %></p>
+        <p>Congrats! You've received a booking request from: <strong><%= mail_to @booking.user.email, @booking.user.first_name + " " + @booking.user.last_name %>    <%= image_tag avatar_url %></strong></p>
+        <p><%= @booking.user.first_name %> would like to borrow your <strong><%= @booking.lense.brand + " " + @booking.lense.lens_type %></strong> lens from <strong><%= @booking.borrow_date %></strong> to <strong><%= @booking.return_date %></strong></p>
+        <p><strong>"<%= @booking.booking_comment %>"</strong>, says <%= @booking.user.first_name %></p>
         <%= render 'layouts/approve_booking_form', booking: @booking %>
       <% elsif current_user == @booking.user %>
         <h1>Edit Your Booking</h1>
