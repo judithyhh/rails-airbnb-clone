@@ -4,8 +4,12 @@
   background-size: cover !important;
   background-position: center;
   color: white;
-  position: relative;
+  padding: 10px;
 }
+
+.card-content {
+}
+
 .card-user {
   position: absolute;
   right: 10px;
