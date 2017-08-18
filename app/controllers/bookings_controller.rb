@@ -6,6 +6,7 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @booking.lense = Lense.find(params[:lense_id])
   end
 
   def create
@@ -30,9 +31,17 @@ class BookingsController < ApplicationController
   def update
     @booking = Booking.find(params[:id])
     if current_user == @booking.user
-      @booking.update(booking_request_params)
+      if @booking.update(booking_request_params)
+        redirect_to '/dashboard'
+      else
+        render :update
+      end
     elsif current_user == @booking.lense.user
-      @booking.update(booking_approval_params)
+      if @booking.update(booking_request_params)
+        redirect_to '/dashboard'
+      else
+        render :update
+      end
     end
   end
 
@@ -40,10 +49,10 @@ class BookingsController < ApplicationController
   private
 
   def booking_request_params
-    params.require(:booking).permit(:borrow_date, :return_date, :booking_comment)
+    params.require(:booking).permit(:borrow_date, :return_date, :booking_comment, :approved_by_owner, :user_id)
   end
 
-  def booking_approval_params
-    params.require(:booking).permit(:approved_by_owner)
-  end
+  # def booking_approval_params
+  #   params.require(:booking).permit(:approved_by_owner)
+  # end
 end
